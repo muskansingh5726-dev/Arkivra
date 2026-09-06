@@ -1,0 +1,1067 @@
+/* ==========================================
+   ARKIVRA - GLOBAL STYLES
+========================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  transition: 0.2s ease;
+}
+
+/* ==========================================
+   LOGIN / SIGNUP
+========================================== */
+
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(139, 92, 246, 0.15),
+      transparent 35%
+    ),
+    #f5f7fb;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.loginLogo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.loginLogoIcon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.loginLogo h1 {
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+
+.loginLogo p {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.loginCard h2 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.loginSubtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.loginCard input {
+  width: 100%;
+  border: 1px solid #dbe1ea;
+  background: #f8fafc;
+  padding: 14px 15px;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 13px;
+}
+
+.loginCard input:focus {
+  border-color: #6366f1;
+  background: white;
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.authMessage {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 11px 13px;
+  border-radius: 9px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.loginButton {
+  width: 100%;
+  border: none;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #7c3aed
+  );
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 5px;
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.22);
+}
+
+.loginButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 25px rgba(99, 102, 241, 0.3);
+}
+
+.loginButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.switchButton {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #6366f1;
+  cursor: pointer;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.switchButton:hover {
+  color: #4f46e5;
+}
+
+/* ==========================================
+   APP LAYOUT
+========================================== */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #111827;
+  color: white;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+.newButton {
+  width: 100%;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #7c3aed
+  );
+  color: white;
+  padding: 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.newButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navItem {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  text-align: left;
+  padding: 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.navItem:hover,
+.navItem.active {
+  background: #1f2937;
+  color: white;
+}
+
+.storage {
+  margin-top: auto;
+  color: #94a3b8;
+  font-size: 13px;
+  padding-top: 25px;
+}
+
+.storage p {
+  margin-bottom: 10px;
+}
+
+.storageBar {
+  height: 7px;
+  background: #374151;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.storageUsed {
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #8b5cf6
+  );
+  border-radius: 20px;
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.content {
+  flex: 1;
+  padding: 45px 55px;
+  max-width: 1600px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.welcome {
+  color: #64748b;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.header h2 {
+  font-size: 34px;
+  color: #172033;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
+
+.logoutButton {
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #475569;
+  padding: 10px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logoutButton:hover {
+  background: #f8fafc;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.createFolder {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.createFolder input {
+  flex: 1;
+  border: 1px solid #dbe1ea;
+  padding: 13px 15px;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+}
+
+.createFolder input:focus {
+  border-color: #6366f1;
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.createFolder button {
+  border: none;
+  background: #6366f1;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.createFolder button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.uploadButton {
+  border: none;
+  background: #172033;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.uploadButton:hover {
+  background: #020617;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.message {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 13px 16px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.loading {
+  padding: 20px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.section {
+  margin-top: 35px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.sectionHeader h3 {
+  font-size: 20px;
+}
+
+.sectionHeader span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty {
+  background: white;
+  border: 1px dashed #cbd5e1;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  color: #64748b;
+  font-size: 30px;
+}
+
+.empty p {
+  margin-top: 12px;
+  color: #334155;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.empty span {
+  display: block;
+  margin-top: 7px;
+  font-size: 14px;
+}
+
+/* ==========================================
+   FOLDER GRID
+========================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.08);
+  border-color: #c7d2fe;
+}
+
+.folderIcon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.card h4 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* ==========================================
+   FILE LIST
+========================================== */
+
+.fileList {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.fileRow {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  transition: 0.2s ease;
+}
+
+.fileRow:hover {
+  background: #fafbff;
+}
+
+.fileRow:last-child {
+  border-bottom: none;
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.fileIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.fileInfo h4 {
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.fileInfo p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ==========================================
+   FILE ACTION BUTTONS
+========================================== */
+
+.fileActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.fileActions button {
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* VIEW */
+
+.viewButton {
+  color: #4338ca;
+  background: #eef2ff;
+}
+
+.viewButton:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
+}
+
+/* DOWNLOAD */
+
+.downloadButton {
+  color: #0369a1;
+  background: #e0f2fe;
+}
+
+.downloadButton:hover {
+  background: #bae6fd;
+  transform: translateY(-1px);
+}
+
+/* TRASH */
+
+.trashButton {
+  color: #b45309;
+  background: #fff7ed;
+}
+
+.trashButton:hover {
+  color: #9a3412;
+  background: #ffedd5;
+  transform: translateY(-1px);
+}
+
+/* RESTORE */
+
+.restoreButton {
+  color: #047857;
+  background: #ecfdf5;
+}
+
+.restoreButton:hover {
+  background: #d1fae5;
+  transform: translateY(-1px);
+}
+
+/* DELETE */
+
+.deleteButton {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.deleteButton:hover {
+  color: white;
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   CUSTOM CONFIRMATION MODAL
+========================================== */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 23, 42, 0.55);
+
+  backdrop-filter: blur(5px);
+
+  animation:
+    fadeIn 0.2s ease;
+}
+
+.confirmModal {
+  width: 100%;
+  max-width: 440px;
+
+  background: white;
+  border-radius: 20px;
+
+  padding: 32px;
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.25);
+
+  animation:
+    modalSlide 0.25s ease;
+}
+
+.modalIcon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 18px;
+
+  border-radius: 18px;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 30px;
+}
+
+.trashModalIcon {
+  background: #fff7ed;
+}
+
+.dangerIcon {
+  background: #fef2f2;
+}
+
+.confirmModal h2 {
+  font-size: 23px;
+  color: #172033;
+  margin-bottom: 12px;
+}
+
+.confirmModal p {
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.modalFileName {
+  margin-top: 18px;
+
+  padding: 12px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  color: #334155;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  word-break: break-word;
+}
+
+.modalActions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.modalActions button {
+  flex: 1;
+
+  border: none;
+
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+/* CANCEL */
+
+.cancelModalButton {
+  color: #475569;
+
+  background: #f1f5f9;
+}
+
+.cancelModalButton:hover {
+  background: #e2e8f0;
+}
+
+/* CONFIRM TRASH */
+
+.confirmTrashButton {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f97316,
+      #ea580c
+    );
+
+  box-shadow:
+    0 8px 18px
+      rgba(234, 88, 12, 0.2);
+}
+
+.confirmTrashButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 22px
+      rgba(234, 88, 12, 0.28);
+}
+
+/* CONFIRM DELETE */
+
+.confirmDeleteButton {
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #dc2626
+    );
+
+  box-shadow:
+    0 8px 18px
+      rgba(220, 38, 38, 0.2);
+}
+
+.confirmDeleteButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 22px
+      rgba(220, 38, 38, 0.28);
+}
+
+.modalActions button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlide {
+  from {
+    opacity: 0;
+    transform:
+      translateY(15px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+  .content {
+    padding: 35px 30px;
+  }
+
+  .fileRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .fileActions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 25px 18px;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .profile {
+    gap: 7px;
+  }
+
+  .logoutButton {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .createFolder {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .uploadButton {
+    justify-content: center;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+
+  .confirmModal {
+    padding: 25px 20px;
+  }
+
+  .fileActions {
+    gap: 6px;
+  }
+
+  .fileActions button {
+    flex: 1;
+  }
+}
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.breadcrumbLink {
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: #6d5dfc;
+}
+
+.breadcrumbSeparator {
+  color: #94a3b8;
+  font-size: 14px;
+  user-select: none;
+}
+/* ================================
+   MODERN BACK BUTTON
+================================ */
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border: 1px solid #d9dee8;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #243047;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.backArrow {
+  font-size: 18px;
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+.backButton:hover {
+  background: #f3f1ff;
+  border-color: #7566e8;
+  color: #5b4fd1;
+
+  transform: translateX(-2px);
+}
+
+.backButton:hover .backArrow {
+  transform: translateX(-3px);
+}
+
+.backButton:active {
+  transform: scale(0.97);
+}

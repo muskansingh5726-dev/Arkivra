@@ -1,0 +1,22 @@
+{
+  "name": "arkivra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intelligent Cloud Storage & Secure File Collaboration Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "build": "npm run build --workspaces",
+    "postinstall": "prisma skills sync || exit 0"
+  },
+  "devDependencies": {
+    "prisma": "^7.10.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.10.0"
+  }
+}

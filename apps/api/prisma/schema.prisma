@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum FilePermission {
+  VIEW
+  COMMENT
+  EDIT
+}
+
+enum ActivityType {
+  FILE_UPLOADED
+  FILE_UPDATED
+  FILE_DELETED
+  FILE_RESTORED
+  FILE_SHARED
+  FILE_DOWNLOADED
+
+  FOLDER_CREATED
+  FOLDER_UPDATED
+  FOLDER_DELETED
+
+  STARRED
+  UNSTARRED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  avatarUrl String?
+  role      Role     @default(USER)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  folders       Folder[]
+  files         File[]
+  sharesCreated FileShare[] @relation("ShareCreator")
+  sharesReceived FileShare[] @relation("ShareRecipient")
+
+  stars         Star[]
+  activities    ActivityLog[]
+
+  @@index([email])
+}
+
+model Folder {
+  id          String   @id @default(cuid())
+  name        String
+
+  parentId    String?
+  parent      Folder?  @relation("FolderHierarchy", fields: [parentId], references: [id])
+  children    Folder[] @relation("FolderHierarchy")
+
+  ownerId     String
+  owner       User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  isTrashed   Boolean  @default(false)
+  trashedAt   DateTime?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  files       File[]
+  stars       Star[]
+
+  @@index([ownerId])
+  @@index([parentId])
+}
+
+model File {
+  id          String   @id @default(cuid())
+
+  name        String
+  mimeType    String
+  size        Int
+
+  storageKey  String   @unique
+
+  folderId    String?
+  folder      Folder?  @relation(fields: [folderId], references: [id], onDelete: SetNull)
+
+  ownerId     String
+  owner       User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  isTrashed   Boolean  @default(false)
+  trashedAt   DateTime?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  versions    FileVersion[]
+  shares      FileShare[]
+  publicLinks PublicLink[]
+  stars       Star[]
+
+  @@index([ownerId])
+  @@index([folderId])
+}
+
+model FileVersion {
+  id          String   @id @default(cuid())
+
+  version     Int
+
+  storageKey  String
+  size        Int
+
+  fileId      String
+  file        File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+
+  @@unique([fileId, version])
+}
+
+model FileShare {
+  id            String         @id @default(cuid())
+
+  fileId        String
+  file          File           @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  recipientId   String
+  recipient     User           @relation("ShareRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  createdById   String
+  createdBy     User           @relation("ShareCreator", fields: [createdById], references: [id], onDelete: Cascade)
+
+  permission    FilePermission @default(VIEW)
+
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@unique([fileId, recipientId])
+  @@index([recipientId])
+}
+
+model PublicLink {
+  id          String    @id @default(cuid())
+
+  token       String    @unique
+
+  fileId      String
+  file        File      @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  expiresAt   DateTime?
+  password    String?
+
+  isActive    Boolean   @default(true)
+
+  createdAt   DateTime  @default(now())
+}
+
+model Star {
+  id        String   @id @default(cuid())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fileId    String?
+  file      File?    @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  folderId  String?
+  folder    Folder?  @relation(fields: [folderId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, fileId])
+  @@unique([userId, folderId])
+
+  @@index([userId])
+}
+
+model ActivityLog {
+  id          String       @id @default(cuid())
+
+  type        ActivityType
+
+  description String
+
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fileId      String?
+  folderId    String?
+
+  createdAt   DateTime     @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}
