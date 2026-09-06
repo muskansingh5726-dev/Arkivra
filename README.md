@@ -6,7 +6,7 @@ Arkivra is a full-stack cloud-based file storage and management application that
 
 The platform provides essential cloud storage functionality such as user authentication, folder creation, file uploads, file organization, and starred items.
 
-🌐 **Live Demo:** https://arkivra-rouge.vercel.app/
+🌐 **Live Demo:** https://arkivra-6derhznis-snzx.vercel.app/
 
 ---
 
