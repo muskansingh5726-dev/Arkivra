@@ -27,7 +27,7 @@ export default function StarredPage() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
-  const API_URL = "http://localhost:5000";
+const API_URL = "https://arkivra.onrender.com";
 
   // ==========================================
   // LOAD STARRED ITEMS
